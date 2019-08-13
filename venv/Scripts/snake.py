@@ -3,6 +3,7 @@ import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 from random import randint
 from Scripts import Menu
+from Scripts import Pila_Score_Report
 
 def pedirNumeroEntero():
     correcto = False
@@ -36,7 +37,7 @@ while not salir:
 
     if opcion == 1:
         print("----Play----")
-        Menu.Snake()
+        Menu.snake
     elif opcion == 2:
         print("----Scoreboard----")
 
@@ -52,6 +53,13 @@ while not salir:
         print("----Reports----")
     elif opcion == 5:
         print("----Bulk Loading----")
+        direc = input("Introduce una direccion: ")
+        archivo=open(direc,"r")
+        for linea in archivo:
+            print(linea)
+            Pi = Pila_Score_Report.Stack()
+            Pi.push(linea)
+        archivo.close()
     elif opcion == 6:
         salir = True
     else:
