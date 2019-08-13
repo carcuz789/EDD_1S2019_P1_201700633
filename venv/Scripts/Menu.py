@@ -1,7 +1,7 @@
 import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 from random import randint
-
+from Scripts import Pila_Score_Report
 WIDTH = 35
 HEIGHT = 20
 MAX_X = WIDTH - 2
@@ -118,6 +118,8 @@ class Food(object):
     def __init__(self, window, char='&'):
         self.x = randint(1, MAX_X)
         self.y = randint(1, MAX_Y)
+        Ingreso = Pila_Score_Report.Stack()
+        Ingreso.push("("+str(self.x)+","+str(self.y)+")")
         self.char = char
         self.window = window
 
