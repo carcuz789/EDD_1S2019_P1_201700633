@@ -131,7 +131,7 @@ class Food(object):
         self.y = randint(1, MAX_Y)
 
 
-if __name__ == '__main__':
+def iniciar(self):
     curses.initscr()
     curses.beep()
     curses.beep()

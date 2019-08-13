@@ -4,7 +4,8 @@ from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 from random import randint
 from Scripts import Menu
 from Scripts import Pila_Score_Report
-
+from Scripts import List_Circular_Dob
+from Scripts import UserSelection
 def pedirNumeroEntero():
     correcto = False
     num = 0
@@ -28,7 +29,7 @@ while not salir:
     print("-                       2. Scoreboard                  -")
     print("-                       3. User Selection              -")
     print("-                       4. Reports                     -")
-    print("-                       5.Bulk Loading                 -")
+    print("-                       5. Bulk Loading                 -")
     print("-                       6. Exit                        -")
     print("-                                                      -")
     print("--------------------------------------------------------")
@@ -37,12 +38,13 @@ while not salir:
 
     if opcion == 1:
         print("----Play----")
-        Menu.snake
+        Menu.iniciar()
     elif opcion == 2:
         print("----Scoreboard----")
 
     elif opcion == 3:
         print("----User Selection----")
+        UserSelection.menu.iniciar()
 
     elif opcion == 4:
         print("----Reports----")
@@ -50,10 +52,10 @@ while not salir:
         print("----Bulk Loading----")
         direc = input("Introduce una direccion: ")
         archivo=open(direc,"r")
+        Li = List_Circular_Dob.ListaCircularDob()
         for linea in archivo:
             print(linea)
-            Pi = Pila_Score_Report.Stack()
-            Pi.push(linea)
+            Li.agregar_inicio(linea)
         archivo.close()
     elif opcion == 6:
         salir = True

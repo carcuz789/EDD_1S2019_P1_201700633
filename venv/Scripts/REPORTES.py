@@ -37,7 +37,7 @@ while not salir:
 
     if opcion == 1:
         print("snake report")
-        Menu.snake
+
     elif opcion == 2:
         print("score report")
         pil = Pila_Score_Report.Stack()
