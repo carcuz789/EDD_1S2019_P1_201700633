@@ -15,14 +15,14 @@ class Stack:  # Creamos la clase Stack
         print(self.items)
 
 
-pila = Stack()  # Creamos una instancia de la pila
+#pila = Stack()  # Creamos una instancia de la pila
 
 # ingresamos algunos elementos a la pila
-pila.push('a')
-pila.push('b')
-pila.push('c')
+#pila.push('a')
+#pila.push('b')
+#pila.push('c')
 
-pila.print_stack()  # Mostramos los elementos de la pila
+#pila.print_stack()  # Mostramos los elementos de la pila
 
-pila.pop()  # Utilizamos el metodo pop
-pila.print_stack()  # Mostramos nuevamente los elementos de la pila
+#pila.pop()  # Utilizamos el metodo pop
+#pila.print_stack()  # Mostramos nuevamente los elementos de la pila

@@ -6,7 +6,7 @@ WIDTH = 35
 HEIGHT = 20
 MAX_X = WIDTH - 2
 MAX_Y = HEIGHT - 2
-SNAKE_LENGTH = 5
+SNAKE_LENGTH = 3
 SNAKE_X = SNAKE_LENGTH + 1
 SNAKE_Y = 3
 TIMEOUT = 100
@@ -26,7 +26,7 @@ class Snake(object):
         for i in range(SNAKE_LENGTH, 0, -1):
             self.body_list.append(Body(x - i, y))
 
-        self.body_list.append(Body(x, y, '0'))
+        self.body_list.append(Body(x, y, '='))
         self.window = window
         self.direction = KEY_RIGHT
         self.last_head_coor = (x, y)
@@ -131,45 +131,3 @@ class Food(object):
         self.y = randint(1, MAX_Y)
 
 
-def iniciar(self):
-    curses.initscr()
-    curses.beep()
-    curses.beep()
-    window = curses.newwin(HEIGHT, WIDTH, 0, 0)
-    window.timeout(TIMEOUT)
-    window.keypad(1)
-    curses.noecho()
-    curses.curs_set(0)
-    window.border(0)
-
-    snake = Snake(SNAKE_X, SNAKE_Y, window)
-    food = Food(window, '*')
-
-    while True:
-        window.clear()
-        window.border(0)
-        snake.render()
-        food.render()
-
-        window.addstr(0, 5, snake.score)
-        event = window.getch()
-
-        if event == 27:
-            break
-
-        if event in [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]:
-            snake.change_direction(event)
-
-        if snake.head.x == food.x and snake.head.y == food.y:
-            snake.eat_food(food)
-
-        if event == 32:
-            key = -1
-            while key != 32:
-                key = window.getch()
-
-        snake.update()
-        if snake.collided:
-            break
-
-    curses.endwin()
