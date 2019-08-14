@@ -1,11 +1,14 @@
 import os
 import curses
+import msvcrt
 from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 from random import randint
 from Scripts import Menu
 from Scripts import Pila_Score_Report
 from Scripts import List_Circular_Dob
 from Scripts import UserSelection
+Li = List_Circular_Dob.ListaCircularDob()
+usuario = ""
 def pedirNumeroEntero():
     correcto = False
     num = 0
@@ -19,8 +22,9 @@ def pedirNumeroEntero():
     return num
 
 salir = False
+salir1 = False
 opcion = 0
-
+Usuario = ""
 while not salir:
 
     print("---------------------- MAIN MENU------------------------")
@@ -44,7 +48,34 @@ while not salir:
 
     elif opcion == 3:
         print("----User Selection----")
-        UserSelection.menu.iniciar()
+        au = Li.primero
+        while not salir1:
+
+            print( "---------------------- presione n para izquierda y m para derecha  --------- salir => l--------------")
+            print( "<-N                                                                                                M ->")
+
+            print("\n")
+            opcion = msvcrt.getch()
+
+            if opcion == b'm':
+                print("siguiente")
+                print(au.dato)
+                usuario = au.dato
+                au = au.siguiente
+
+            elif opcion == b'n':
+                print("anterior")
+                au = au.anterior
+                print(au.dato)
+                usuario = au.dato
+            elif opcion == b'l':
+                print("----Usuario seleccionado --- " )
+                print(usuario)
+                salir1 = True
+            else:
+                print("Introduce un valor valido")
+
+        print("Fin")
 
     elif opcion == 4:
         print("----Reports----")
@@ -52,11 +83,11 @@ while not salir:
         print("----Bulk Loading----")
         direc = input("Introduce una direccion: ")
         archivo=open(direc,"r")
-        Li = List_Circular_Dob.ListaCircularDob()
         for linea in archivo:
             print(linea)
             Li.agregar_inicio(linea)
         archivo.close()
+
     elif opcion == 6:
         salir = True
     else:

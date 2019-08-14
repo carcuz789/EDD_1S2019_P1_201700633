@@ -52,10 +52,7 @@ class ListaCircularDob :
 
 
 
-hola = ListaCircularDob()
-hola.agregar_inicio("kk")
-hola.agregar_inicio("la")
-hola.agregar_inicio("lo")
-hola.agregar_inicio("pu")
-hola.Recorrer_inicio_A_Fin()
+
+
+
 
