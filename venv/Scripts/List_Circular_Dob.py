@@ -1,3 +1,4 @@
+import os
 class Nodo:
     def __init__(self,dato):
         self.dato = dato
@@ -68,11 +69,14 @@ class ListaCircularDob :
         # EL PRIMERO APUNTA A NULL (1ER NULL QUE SE CREO)
         # f.write("\"" + temp.valor + "\"" + " -> Null1; \n")
         # RELACIONES ENTRE NODOS
-        for i in range(0, self.__sizeof__() - 1):
-            temp2 = temp.primero.siguiente
-            f.write(" \"" + temp.valor + "\" -> \"" + temp2.valor + "\"; \n")
-            f.write(" \"" + temp2.valor + "\" -> \"" + temp.valor + "\"; \n")
-            temp = temp.primero.siguiente
+        while temp:
+            temp2 = temp.siguiente
+            f.write(" \"" + temp.dato + "\" -> \"" + temp2.dato + "\"; \n")
+            f.write(" \"" + temp2.dato + "\" -> \"" + temp.dato + "\"; \n")
+            temp = temp.siguiente
+            if temp == self.primero:
+                break
+
         # EL ULTIMO APUNTA A NULL (EL 2DO NULL QUE SE CREO)
         # f.write("\"" + temp.valor + "\"" + " -> " + "Null2; \n")
         # SE CIERRA EL GRAFICO
@@ -84,14 +88,7 @@ class ListaCircularDob :
         os.system("UsersReport.jpg")
         # IMPRIMIR LISTA
 
-    def printL(self):
-        temp = self.ini
-        i = 0
-        print("Lista: ")
-        while temp is not None:
-            print("Valor: " + temp.valor)
-            i += 1
-            temp = temp.sig
+
 
 
 

@@ -1,0 +1,40 @@
+digraph G {
+node [shape = square];
+rankdir=LR;
+ "rodrigo
+" -> "mirna
+"; 
+ "mirna
+" -> "rodrigo
+"; 
+ "mirna
+" -> "mynor
+"; 
+ "mynor
+" -> "mirna
+"; 
+ "mynor
+" -> "pablo 
+"; 
+ "pablo 
+" -> "mynor
+"; 
+ "pablo 
+" -> "maria 
+"; 
+ "maria 
+" -> "pablo 
+"; 
+ "maria 
+" -> "usuario 
+"; 
+ "usuario 
+" -> "maria 
+"; 
+ "usuario 
+" -> "rodrigo
+"; 
+ "rodrigo
+" -> "usuario 
+"; 
+}

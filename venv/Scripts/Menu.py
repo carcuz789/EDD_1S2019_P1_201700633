@@ -10,7 +10,7 @@ SNAKE_LENGTH = 3
 SNAKE_X = SNAKE_LENGTH + 1
 SNAKE_Y = 3
 TIMEOUT = 100
-
+Ingreso = Pila_Score_Report.Stack()
 
 class Snake(object):
     REV_DIR_MAP = {
@@ -118,7 +118,6 @@ class Food(object):
     def __init__(self, window, char='&'):
         self.x = randint(1, MAX_X)
         self.y = randint(1, MAX_Y)
-        Ingreso = Pila_Score_Report.Stack()
         Ingreso.push("("+str(self.x)+","+str(self.y)+")")
         self.char = char
         self.window = window
