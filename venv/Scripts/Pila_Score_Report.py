@@ -13,7 +13,7 @@ class Stack:  # Creamos la clase Stack
 
     def print_stack(self):  # Metodo para mostrar los elementos de la pila
         print(self.items)
-        
+
 
     def graph(self):
         # INICIO DE LA LISTA
