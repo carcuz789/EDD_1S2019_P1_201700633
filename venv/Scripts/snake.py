@@ -8,6 +8,7 @@ from Scripts import Pila_Score_Report
 from Scripts import List_Circular_Dob
 from Scripts import UserSelection
 Li = List_Circular_Dob.ListaCircularDob()
+Ingreso = Pila_Score_Report.Stack()
 usuario = "YO"
 WIDTH = 35
 HEIGHT = 20
@@ -52,8 +53,6 @@ while not salir:
     if opcion == 1:
         print("----Play----")
         curses.initscr()
-        curses.beep()
-        curses.beep()
         window = curses.newwin(HEIGHT, WIDTH, 0, 0)
         window.timeout(TIMEOUT)
         window.keypad(1)
@@ -81,8 +80,8 @@ while not salir:
                 snake.change_direction(event)
 
             if snake.head.x == food.x and snake.head.y == food.y:
+                Ingreso.push("("+str(food.x)+","+str(food.y)+")")
                 snake.eat_food(food)
-
             if event == 32:
                 key = -1
                 while key != 32:
@@ -146,11 +145,10 @@ while not salir:
 
             if opcion == 1:
                 print("snake report")
-
+                
             elif opcion == 2:
                 print("score report")
-                pil = Pila_Score_Report.Stack()
-                pil.print_stack()
+                Ingreso.graph()
             elif opcion == 3:
                 print("scoreboard report")
             elif opcion == 4:
